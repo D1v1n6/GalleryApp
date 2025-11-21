@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Project.Models.ImageModel>
+@{
+    ViewData["Title"] = "Photo Gallery";
+}
+
+<h2>@ViewData["Title"]</h2>
+<a href="/Gallery/Upload" class="btn btn-primary">Upload New Image</a>
+
+<div class="row mt-4">
+    @foreach (var img in Model)
+    {
+        <div class="col-md-3 mb-3 text-center">
+            <img src="@img.ImagePath" class="img-fluid rounded shadow-sm" alt="@img.Title" />
+            <h5>@img.Title</h5>
+            <small>@img.UploadDate.ToShortDateString()</small>
+        </div>
+    }
+</div>
+
